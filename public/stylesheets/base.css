@@ -1,0 +1,32 @@
+@font-face
+{
+  font-family: SegoeWP;
+  src: url('/fonts/SegoeWP.ttf');
+}
+
+@font-face
+{
+  font-family: SegoeWPLight;
+  src: url('/fonts/SegoeWP-Light.ttf');
+}
+
+
+html, body
+{
+  background-color: #353535;
+  color: #fff;
+  font-family: SegoeWPLight, helvetica, sans-serif;
+  height: 100%;
+  overflow: hidden;
+  width: 100%;
+}
+
+body
+{
+  background-size: 100% auto;
+}
+
+h1
+{
+  font-size: 102px;
+}

@@ -1,0 +1,9 @@
+doctype html
+html
+ head
+  title Fixit
+  = stylesheet_link_tag 'reset', 'base', 'tiles', 'pages'
+  = javascript_include_tag :defaults
+  = csrf_meta_tag
+ body.theme_default
+  = yield
