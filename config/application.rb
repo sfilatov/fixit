@@ -40,3 +40,14 @@ module Fixit
     config.filter_parameters += [:password]
   end
 end
+
+configatron.configure_from_hash(
+    :jenkins => {
+        :protocol => 'http',
+        :host => 'ci.jenkins-ci.org',
+        :port => 80,
+        :rss_url => 'cc.xml',
+        :username => "", # basic auth
+        :password => ""  # basic auth
+    }
+)
