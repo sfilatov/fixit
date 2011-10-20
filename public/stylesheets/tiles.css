@@ -32,7 +32,7 @@
     margin: 0;
     overflow: hidden;
     position: relative;
-    width: 16.6%;
+    width: 20%;
 }
 
 .tile div
@@ -62,7 +62,7 @@
 .tile h3
 {
     font-family: SegoeWP;
-    font-size: 20px;
+    font-size: 19px;
     position: absolute;
     right: 10px;
     text-align: right;
