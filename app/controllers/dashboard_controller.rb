@@ -5,7 +5,7 @@ class DashboardController < ApplicationController
 
   def index
     rss = Hashie::Rash.new Crack::XML.parse(fetch_rss)
-    @projects = rss.projects? && rss.projects.project ? rss.projects.project : []
+    @projects = (rss.projects? && rss.projects.project ? rss.projects.project : []).sort{|x, y| x.name <=> y.name}
   end
 
   private
