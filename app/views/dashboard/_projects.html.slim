@@ -1,0 +1,6 @@
+ul.tiles
+ - @projects.each do |project|
+  li class="tile #{project.last_build_status == 'Success' ? 'green' : 'red'}"
+   div
+    h2 = l(DateTime.strptime(project.last_build_time), :format => :time)
+    h3 = project.name.humanize

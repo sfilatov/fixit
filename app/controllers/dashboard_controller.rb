@@ -4,8 +4,12 @@ require 'net/https'
 class DashboardController < ApplicationController
 
   def index
-    rss = Hashie::Rash.new Crack::XML.parse(fetch_rss)
+    rss = Hashie::Rash.new Crack::XML.parse(fetch_rss.body)
     @projects = (rss.projects? && rss.projects.project ? rss.projects.project : []).sort{|x, y| x.name <=> y.name}
+
+    if params[:projects]
+      render :partial => 'projects', :layout => false
+    end
   end
 
   private
@@ -20,12 +24,8 @@ class DashboardController < ApplicationController
     response = http.request(req)
 
     case response
-      when Net::HTTPSuccess
-        response.body
-      when Net::HTTPRedirection
-        fetch(response['location'], limit - 1)
-      else
-        response.error!
+      when Net::HTTPSuccess then response
+      else response.error!
     end
   end
 end

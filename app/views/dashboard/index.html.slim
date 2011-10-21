@@ -1,15 +1,7 @@
 = content_for :head do
- meta http-equiv="refresh" content="60"
+ coffee:
+  $ ->
+    reload = () -> $("#page_home").load('/?projects=true')
+    setTimeout reload, 6000
 section#page_home.page.current
- ul.tiles
-  li.tile.banner.transparent
-   div
-    h1
-     | Fix It
-     span.right
-      = l(Time.now, :format => :time)
-  - @projects.each do |project|
-   li class="tile #{project.last_build_status == 'Success' ? 'green' : 'red'}"
-    div
-     h2 = l(DateTime.strptime(project.last_build_time), :format => :time)
-     h3 = project.name.humanize
+ = render :partial => 'projects'
