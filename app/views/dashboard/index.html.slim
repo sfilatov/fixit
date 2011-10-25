@@ -1,7 +1,10 @@
 = content_for :head do
  coffee:
   $ ->
-    reload = () -> $("#page_home").load('/?projects=true')
-    setTimeout reload, 6000
+    timeout = 60 * 1000
+    reload = () ->
+        $("#page_home").load('/?projects=true')
+        setTimeout reload, timeout
+    setTimeout reload, timeout
 section#page_home.page.current
  = render :partial => 'projects'
